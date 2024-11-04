@@ -1,16 +1,16 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("default", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : Form("default", 72, 45)
 {
 	std::cout << "RobotomyRequestForm generate" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm(target, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : Form(target, 72, 45)
 {
 	std::cout << "RobotomyRequestForm generate" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : Form(other)
 {
 	std::cout << "RobotomyRequestForm copy" << std::endl;
 }
@@ -19,7 +19,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 {
 	if (this == &other)
 		return (*this);
-	AForm::operator=(other);
+	Form::operator=(other);
 	return (*this);
 }
 

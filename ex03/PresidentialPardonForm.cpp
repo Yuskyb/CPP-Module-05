@@ -1,16 +1,16 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("default", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : Form("default", 25, 5)
 {
 	std::cout << "PresidentialPardonForm generate" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm(target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : Form(target, 25, 5)
 {
 	std::cout << "PresidentialPardonForm generate" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : Form(other)
 {
 	std::cout << "PresidentialPardonForm copy" << std::endl;
 }
@@ -19,7 +19,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 {
 	if (this == &other)
 		return (*this);
-	AForm::operator=(other);
+	Form::operator=(other);
 	return (*this);
 }
 

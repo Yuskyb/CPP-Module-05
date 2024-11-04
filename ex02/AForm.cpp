@@ -1,6 +1,15 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
+AForm::AForm(void)
+		: _name("default"),
+			_status(false),
+			_grade_sign(150),
+			_grade_execute(150)
+{
+	std::cout << _name << ": AForm generate" << std::endl;
+}
+
 AForm::AForm(const std::string& name,
 				const unsigned int grade_sign,
 				const unsigned int grade_execute)
@@ -10,6 +19,23 @@ AForm::AForm(const std::string& name,
 					_grade_execute(grade_execute)
 {
 	std::cout << _name << ": AForm generate" << std::endl;
+}
+
+AForm::AForm(const AForm& other)
+		: _name(other._name),
+			_status(other._status),
+			_grade_sign(other._grade_sign),
+			_grade_execute(other._grade_execute)
+{
+	std::cout << "AForm copy" << std::endl;
+}
+
+AForm& AForm::operator=(const AForm& other)
+{
+	if (this == &other)
+		return (*this);
+	_status = other._status;
+	return (*this);
 }
 
 const std::string& AForm::getName(void) const
@@ -37,6 +63,7 @@ void AForm::beSigned(Bureaucrat& b)
 	if (b.getGrade() > _grade_sign)
 		throw GradeTooLowException();
 	_status = true;
+	b.signForm(*this);
 }
 
 const char * AForm::GradeTooHighException::what() const throw()

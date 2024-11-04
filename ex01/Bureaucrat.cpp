@@ -1,5 +1,10 @@
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150)
+{
+	std::cout << _name << ", " <<_grade <<": Bureaucrat generate" << std::endl;
+}
+
 Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name), _grade(grade)
 {
 	if (grade < 0)
@@ -13,6 +18,16 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(oth
 {
 	std::cout << "Bureaucrat copy" << std::endl;
 }
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
+{
+	if (this == &other)
+		return (*this);
+	_name = other._name;
+	_grade = other._grade;
+	return (*this);
+}
+
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {

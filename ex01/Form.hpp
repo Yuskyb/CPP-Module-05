@@ -13,9 +13,12 @@ class Form {
 		void beSigned(void);
 
 	public:
+		Form();
 		Form(const std::string& name,
 				const unsigned int grade_sign,
 				const unsigned int grade_execute);
+		Form(const Form& other);
+		Form& operator=(const Form& other);
 		~Form();
 		const std::string& getName(void) const;
 		bool getStatus(void) const;

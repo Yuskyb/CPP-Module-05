@@ -1,10 +1,10 @@
 #pragma once
 
-#include "AForm.hpp"
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
 #include <fstream>
 
-class RobotomyRequestForm : public AForm
+class RobotomyRequestForm : public Form
 {
 	private:
 		std::string _target;

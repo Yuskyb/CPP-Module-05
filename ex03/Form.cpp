@@ -62,8 +62,8 @@ void Form::beSigned(Bureaucrat& b)
 {
 	if (b.getGrade() > _grade_sign)
 		throw GradeTooLowException();
+	_status = true;\
 	b.signForm(*this);
-	_status = true;
 }
 
 const char * Form::GradeTooHighException::what() const throw()
@@ -83,6 +83,23 @@ std::ostream& operator<<(std::ostream& os, const Form& f)
 		<< f.getGradeSign() << ", Form grade execute "
 		<< f.getGradeExecute();
 	return (os);
+}
+
+Form::FormError::FormError(std::string message) : _message(message) {};
+
+Form::FormError::~FormError() throw() {};
+
+const char* Form::FormError::what() const throw()
+{
+	return (_message.c_str());
+}
+
+void Form::execute(Bureaucrat const & executor) const
+{
+	if (this->getStatus() == false)
+		throw FormError("Form is not signed");
+	if (executor.getGrade() > this->_grade_execute)
+		throw GradeTooLowException();
 }
 
 Form::~Form(void)

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "AForm.hpp"
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
 #include <fstream>
 
-class PresidentialPardonForm : public AForm
+class PresidentialPardonForm : public Form
 {
 	private:
 		std::string _target;

@@ -8,8 +8,10 @@ class Bureaucrat {
 		unsigned int _grade;
 
 	public:
+		Bureaucrat(void);
 		Bureaucrat(const Bureaucrat& other);
 		Bureaucrat(const std::string& name, unsigned int grade);
+		Bureaucrat& operator=(const Bureaucrat& other);
 		const std::string& getName(void) const;
 		unsigned int getGrade(void) const;
 		void increment(void);

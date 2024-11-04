@@ -1,11 +1,11 @@
 #pragma once
 
 #include <iostream>
-#include "AForm.hpp"
+#include "Form.hpp"
 
 class Bureaucrat {
-	private:
-		const std::string _name;
+	protected:
+		std::string _name;
 		unsigned int _grade;
 
 	public:
@@ -17,12 +17,12 @@ class Bureaucrat {
 		unsigned int getGrade(void) const;
 		void increment(void);
 		void decrement(void);
-		void executeForm(AForm const & form) const;
+		void executeForm(Form const & form) const;
 		virtual ~Bureaucrat(void);
 		class GradeTooHighException : public std::exception {
 			const char * what() const throw();
 		};
-		void signForm(AForm& form);
+		void signForm(Form& form);
 
 		class GradeTooLowException : public std::exception {
 			const char *what() const throw();

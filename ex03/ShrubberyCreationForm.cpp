@@ -1,16 +1,16 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) , _target("default")
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 145, 137) , _target("default")
 {
 	std::cout << "ShrubberyCreationForm generate" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm(target, 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : Form(target, 145, 137), _target(target)
 {
 	std::cout << "ShrubberyCreationForm generate" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : Form(other)
 {
 	std::cout << "ShrubberyCreationForm copy" << std::endl;
 }
@@ -19,7 +19,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
 	if (this == &other)
 		return (*this);
-	AForm::operator=(other);
+	Form::operator=(other);
 	return (*this);
 }
 

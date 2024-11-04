@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150)
 {
@@ -70,4 +71,21 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 Bureaucrat::~Bureaucrat(void)
 {
 	std::cout << _name << ", " <<_grade << ": Bureaucrat delete" << std::endl;
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+	if (form.getStatus() == true)
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	else
+		std::cout << _name << " couldn't sign " << form.getName() << "because out of range" << std::endl;
+}
+
+void Bureaucrat::executeForm(Form const & form) const
+{
+	if (form.getStatus() == false)
+		throw Form::FormError("Form is not signed");
+	if (this->getGrade() > form.getGradeExecute())
+		throw GradeTooLowException();
+	std::cout << _name << " executes " << form.getName() << std::endl;
 }
