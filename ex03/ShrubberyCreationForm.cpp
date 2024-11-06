@@ -31,7 +31,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	executor.executeForm(*this);
-	std::ofstream file(this->_target + "_shrubbery");
+	std::ofstream file((this->_target + "_shrubbery").c_str());
 	if (!file)
 		throw FormError("File could not be opened");
 	file << "       _-_\n";

@@ -32,9 +32,9 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	executor.executeForm(*this);
 	std::cout << "wheen..." << std::endl;
-	std::srand(static_cast<unsigned int>(std::time(0)));
-	int i = std::rand() % 100;
-	if (i >= 50)
+	std::srand(static_cast<unsigned int>(time(0)));
+	int i = std::rand() % 2;
+	if (i == 0)
 		std::cout << this->getName() << " has been robotomized successfully" << std::endl;
 	else
 		std::cout << this->getName() << " has not been robotomized" << std::endl;
