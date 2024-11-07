@@ -8,7 +8,7 @@ Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150)
 
 Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name), _grade(grade)
 {
-	if (grade < 0)
+	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)
 		throw GradeTooLowException();

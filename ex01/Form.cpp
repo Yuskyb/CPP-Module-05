@@ -62,8 +62,8 @@ void Form::beSigned(Bureaucrat& b)
 {
 	if (b.getGrade() > _grade_sign)
 		throw GradeTooLowException();
-	b.signForm(*this);
 	_status = true;
+	b.signForm(*this);
 }
 
 const char * Form::GradeTooHighException::what() const throw()

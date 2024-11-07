@@ -62,7 +62,7 @@ void Form::beSigned(Bureaucrat& b)
 {
 	if (b.getGrade() > _grade_sign)
 		throw GradeTooLowException();
-	_status = true;\
+	_status = true;
 	b.signForm(*this);
 }
 
